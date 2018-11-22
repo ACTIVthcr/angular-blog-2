@@ -1,0 +1,31 @@
+<li [ngClass]="{'list-group-item': true, 'list-group-item-success': post.loveIts > 0,
+ 'list-group-item-danger': post.loveIts < 0}">
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h4 [ngStyle]="{'color': getColor()}"> <strong>{{post.title}}</strong></h4>
+    </div>
+    <div class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <i>{{ post.created_at | date: "MM/dd/yyyy, h:mm a"}} </i>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <p>{{ post.content }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+      <button type="button" class="btn btn-success" (click)="increaseLoveIts()">I love It</button>
+    </div>
+    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+      <button type="button" class="btn btn-danger" (click)="decreaseLoveIts()">I don't like It</button>
+    </div>
+    <div class="col-xs-offset-8 col-sm-offset-8 col-md-offset-8 col-lg-offset-8 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+      <button type="button" class="btn btn-danger" (click)="deletePost(post)">Supprimer</button>
+    </div>
+  </div>
+
+</li>
